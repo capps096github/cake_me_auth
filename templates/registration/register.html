@@ -2,10 +2,11 @@
 
 
 <!-- Title -->
-{% block title %} <title>CakeMe | Customer's Login</title> {% endblock %}
+{% block title %} <title>CakeMe | Customer's Register</title> {% endblock %}
 
 
 {% block content %}
+<!-- Main Content -->
 <main class="max-w-4xl px-4 mx-auto mt-4 mb-4 sm:max-w-4xl sm:mt-5 sm:px-6 md:mt-8">
   <div class="items-center text-center transition-colors duration-500 sm:text-center text-cake-me-dark ">
     <!-- Center Logo -->
@@ -28,40 +29,38 @@
     </div>
 
     <p class="text-2xl font-bold tracking-tight">
-      Good to see you back :)
-
+      We gat some cake for you...
     </p>
 
     <h2 class="mx-auto mt-4 text-4xl font-bold tracking-tight">
-      We gat some cake for you... Continue with your
+      Create a
       <span class="underline text-cake-me-dark hover:text-cake-me-blue xl:inline"><a href="splash.html"> CakeMe
-          Account Details</a></span>
-      to Login
+          Account </a></span>
+      and Get Started
     </h2>
 
+
+  </div>
 
     <!-- login error widget -->
     {% if form.errors %}
     <div
       class="flex flex-col items-center w-full p-4 mx-auto mt-4 text-2xl text-center rounded-lg text-cake-me-white bg-cake-me-red">
-
+    
       <h2 class="text-2xl font-bold tracking-tight underline">
-        Login Error
+        Error Creating Account
       </h2>
-
+    
       <p class="mx-auto mt-4 text-xl font-medium tracking-tight">
-        Your username and password didn't match. Please try again.
+       Please try again.
       </p>
     </div>
     {% endif%}
 
-
-  </div>
-
   <!-- Form div -->
   <div class="items-center justify-center mt-10">
     <div class="max-w-xl mx-auto">
-      <form class="space-y-6" method="post" action="{% url 'login' %}">
+      <form class="space-y-6"  method="post" action="{% url 'register' %}" >
         {% csrf_token %}
 
         <!-- Name-->
@@ -84,6 +83,7 @@
             required />
         </label>
 
+
         <!-- Password -->
         <label class="block mt-4">
           <span class="block text-sm font-medium text-sips-dark-blue">Password</span>
@@ -95,23 +95,20 @@
         </label>
 
 
-
-
-
         <!-- Submit Button -->
-        <button type="submit" value="login"
+        <button type="submit" value="register"
           class="flex justify-center w-full px-4 py-2 text-sm font-bold text-white transition-colors duration-300 border border-transparent rounded-md group bg-cake-me-dark hover:bg-cake-me-light hover:text-cake-me-dark">
 
-          Login
+          Sign Up
         </button>
 
         <div class="transition-colors duration-300">
           <!-- Log in -->
           <p class="tracking-tight text-center text-cake-me-dark sm:mt-2 sm:text-lg md:mt-2 lg:mx-0 ">
-            Don't have an account?
+            Have an account?
             <span
               class="ml-2 font-bold underline duration-300 text-cake-me-blue hover:cursor-pointer hover:text-cake-me-light hover:underline"
-              title="Log In to your Account"><a href="{% url 'cake_auth/register' %}"> Sign Up Instead. </a>
+              title="Log In to your Account"><a href="{% url 'login' %}"> Log In Instead. </a>
 
             </span>
           </p>
@@ -124,5 +121,4 @@
     </div>
   </div>
 </main>
-
-{% endblock %}
+{%endblock %}

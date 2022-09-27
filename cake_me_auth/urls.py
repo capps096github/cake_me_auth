@@ -28,5 +28,4 @@ urlpatterns = [
     path('cake_auth/', include('cake_auth.urls')),
     path('', RedirectView.as_view(url='cake_auth/')),
     path('accounts/', include('django.contrib.auth.urls')),
-
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
